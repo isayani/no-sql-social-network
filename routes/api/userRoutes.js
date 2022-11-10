@@ -9,7 +9,7 @@ const {
   removeThought,
   addFriend,
   removeFriend
-} = require('../../controllers/UserController');
+} = require('../../controllers/userController');
 
 // /api/users
 router.route('/').get(getUsers).post(createUser);
