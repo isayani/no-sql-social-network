@@ -40,7 +40,7 @@ module.exports = {
               .json({ message: "Error: thought was not recorded!" })
           : User.findOneAndUpdate(
               { userId: req.body.userId },
-              { $push: { thought: { thought: thought.thoughtName } } },
+              { $push: { thought: { thought: thought.thoughtText } } },
               { runValidators: true, new: true }
             )
       )
@@ -59,7 +59,7 @@ module.exports = {
   updateThought(req, res) {
     Thought.findOneAndUpdate(
       { thoughtId: req.params.thoughtId },
-      { thoughtName: req.body.thoughtName, username: req.body.username },
+      { thoughtText: req.body.thoughtText, username: req.body.username },
       { runValidators: true, new: true }
     )
       .then((thought) =>

@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 // Reaction subdocument schema
-const reactionSchema = new mongoose.Schema({
+const reactionSchema = new Schema({
   reactionId: {
     type: Schema.Types.ObjectId,
     default: function () {

@@ -1,6 +1,6 @@
 const connection = require("../config/connection");
 const { User, Thought } = require("../models");
-const { username, email, thoughts } = require("./data");
+const { usernames, email, thoughts } = require("./data");
 
 connection.on("error", (err) => err);
 
@@ -33,7 +33,7 @@ connection.once("open", async () => {
     for (let i = 0; i < thoughts.length; i++) {
       const thoughtsObj = {
         username: usernames[i],
-        thoughtName: thoughts[i],
+        thoughtText: thoughts[i],
       };
       userThoughts.push(thoughtsObj);
     }
