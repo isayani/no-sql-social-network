@@ -1,5 +1,4 @@
 const { Schema, model } = require("mongoose");
-const models = require("../models");
 
 // Reaction subdocument schema
 const reactionSchema = new mongoose.Schema({
@@ -21,7 +20,7 @@ const reactionSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
-    // getter method in 46
+    // getter function to pass through formatter like day or moment
   },
 });
 
@@ -37,7 +36,7 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      // getter method in 46
+      // getter function to pass through formatter like day or moment
     },
     username: {
       type: String,
@@ -48,7 +47,7 @@ const thoughtSchema = new Schema(
   },
   {
     toJSON: {
-      virtuals: true,
+      // getters includes virtuals
       getters: true,
     },
   }
