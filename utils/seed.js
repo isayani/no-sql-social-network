@@ -41,14 +41,14 @@ connection.once("open", async () => {
   thoughtData();
 
   // Insert Many for userData
+  console.info("================Users Seeded================");
   await User.insertMany(users);
   console.table(users);
-  console.info("================Users Seeded================");
 
   // Insert Many for thoughtData
+  console.info("================Thoughts Seeded================");
   await Thought.insertMany(userThoughts);
   console.table(userThoughts);
-  console.info("================Thoughts Seeded================");
 
   process.exit(0);
 });
