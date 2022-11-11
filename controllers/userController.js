@@ -11,6 +11,7 @@ module.exports = {
   // Get all Users
   getUsers(req, res) {
     User.find()
+      .populate("thoughts")
       .then(async (users) => {
         const userObj = {
           users,
@@ -22,6 +23,7 @@ module.exports = {
         return res.status(500).json(err);
       });
   },
+
   // Get a single User
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
@@ -77,11 +79,7 @@ module.exports = {
           ? res
               .status(404)
               .json({ message: "User not found! Please try again." })
-          : Thought.findOneAndUpdate(
-              { username: req.params.username },
-              { $pull: { username: req.params.username } },
-              { new: true }
-            )
+          : Thought.deleteMany({ _id: { $in: user.thoughts } })
       )
       .then((thought) =>
         !thought
@@ -98,8 +96,6 @@ module.exports = {
       });
   },
 
-  // Add and Remove Thought (?)
-
   // Add friend by userId
   addFriend(req, res) {
     User.findOneAndUpdate(
@@ -109,11 +105,9 @@ module.exports = {
     )
       .then((friend) =>
         !friend
-          ? res
-              .status(404)
-              .json({
-                message: "No friend with that ID found! Please try again.",
-              })
+          ? res.status(404).json({
+              message: "No friend with that ID found! Please try again.",
+            })
           : res.json(friend)
       )
       .catch((err) => res.status(500).json(err));
