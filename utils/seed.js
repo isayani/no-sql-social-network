@@ -12,43 +12,54 @@ connection.once("open", async () => {
   // Drop existing Thoughts
   await Thought.deleteMany({});
 
-  console.log("================Collections Emptied================");
+  console.log(
+    "================DROPPED EXISTING USERS & THOUGHTS================"
+  );
 
   // Create empty array to hold Users, Thoughts
   const users = [];
   const userThoughts = [];
+
   // Loop through User, Thought Data
-  function userData() {
-    for (let i = 0; i < usernames.length; i++) {
-      const userObj = {
-        username: usernames[i],
-        email: email[i],
-      };
-      users.push(userObj);
-    }
+  for (let i = 0; i < usernames.length; i++) {
+    const userObj = {
+      username: usernames[i],
+      email: email[i],
+    };
+    const newUser = await User.create(userObj);
+    users.push({
+      _id: newUser._id.toString(),
+      username: newUser.username,
+    });
   }
-  userData();
 
-  function thoughtData() {
-    for (let i = 0; i < thoughts.length; i++) {
-      const thoughtsObj = {
-        username: usernames[i],
-        thoughtText: thoughts[i],
-      };
-      userThoughts.push(thoughtsObj);
-    }
+  for (let i = 0; i < thoughts.length; i++) {
+    const thoughtsObj = {
+      username: usernames[i],
+      thoughtText: thoughts[i],
+    };
+    const newThought = await Thought.create(thoughtsObj);
+    userThoughts.push({
+      _id: newThought._id.toString(),
+      username: newThought.username,
+    });
   }
-  thoughtData();
 
-  // Insert Many for userData
-  console.info("================Users Seeded================");
-  await User.insertMany(users);
-  console.table(users);
+  // Attach seeded User Data to seeded Thought Data
+  for (let i = 0; i < userThoughts.length; i++) {
+    const userId = users.filter(
+      (user) => user.username === userThoughts[i].username
+    );
+    console.log("USER ID", userId);
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: userId[0]._id },
+      { $push: { thoughts: userThoughts[i]._id } },
+      { new: true }
+    );
+    console.log(updatedUser);
+  }
 
-  // Insert Many for thoughtData
-  console.info("================Thoughts Seeded================");
-  await Thought.insertMany(userThoughts);
-  console.table(userThoughts);
+  console.info("================USERS & THEIR THOUGHTS SEEDED================");
 
   process.exit(0);
 });
