@@ -84,7 +84,7 @@ We would like to continue to add the following functionality to our application:
 - Delete associated thoughts when user is deleted &check;
 
 ## Contributing
-We'd love for you to contribute! In order to do so, fork this repository. Your pull request will need approval in order to merge to ```main```. <br/><br/> Take a look at our [Future Development](#future-development) section to see what we are looking to expand on (implemented features are denoted with a &check;). <br/>Feel free to implement your own ideas and merge request!
+We'd love for you to contribute! In order to do so, fork this repository. Your pull request will need approval in order to merge to ```main```. <br/><br/> Take a look at our [Future Development](#future-development) section to see what we are looking to expand on (implemented features are denoted with a &check;). Feel free to implement your own ideas and merge request!
 
 ## Tests
 No tests were run to complete this API.
