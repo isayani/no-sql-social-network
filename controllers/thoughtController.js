@@ -11,6 +11,7 @@ module.exports = {
         return res.status(500).json(err);
       });
   },
+
   // Get a single Thought
   getSingleThought(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
@@ -30,7 +31,7 @@ module.exports = {
       });
   },
 
-  // create a new Thought
+  // Create a new Thought
   createThought(req, res) {
     Thought.create(req.body)
       .then((thought) =>
@@ -40,7 +41,7 @@ module.exports = {
               .json({ message: "Error: thought was not recorded!" })
           : User.findOneAndUpdate(
               { userId: req.body.userId },
-              { $push: { thought: { thought: thought.thoughtText } } },
+              { $push: { thoughts: { thought: thought.thoughtText } } },
               { runValidators: true, new: true }
             )
       )
