@@ -1,9 +1,9 @@
-# Telepathy 💭
+# Telepathy API 💭
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
 
-Telepathy is a social network backend (API) where users can create a friend list, share their thoughts, and react to their friends' thoughts! This API uses Express.js for routing, MongoDB as the database, and Mongoose as the Object Data Modeling (ODM) library. This API also uses the native Javascript ``Date`` object to format timestamps. To learn more about Telepathy, read throught the documentation below.
+Telepathy is a social network backend (API) where users can create a friend list, share their thoughts, and react to their friends' thoughts! This API uses Express.js for routing, MongoDB as the database, and Mongoose as the Object Data Modeling (ODM) library. This API also uses the native Javascript ``Date`` object and moment.js to format timestamps. To learn more about Telepathy API, read throught the documentation below.
 
 ## Table of Contents
 1. [Description](#description)
@@ -43,10 +43,10 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 ## Installation
 To run Telepathy locally:
 
-1. Pull down and branch this repository
+1. Pull down and/or branch this repository
 2. Run ```npm i``` to install all dependencies
 3. Seed the database by running ```npm run seed```
-4. Run the app with ```npm run start```
+4. Run the app with ```npm run start``` </br> or ```npm run dev``` for nodemon
 
 This application has not been deployed. The following animations show examples' of the application's API routes being tested in Insomnia:
 
@@ -62,23 +62,27 @@ A short and simple permissive license with conditions only requiring preservatio
 
 ## Technologies Employed
 * JavaScript
+* MongoDB
 * Node.js
 * Express.js
-* MongoDB
 * Mongoose
+* Moment.js
 
 ## Future Development
 We would like to continue to add the following functionality to our application:
+- Active counter for all thoughts
+- Active counter for all friends
+- Delete associated thoughts when user is deleted &check;
 
 ## Contributing
-We'd love for you to contribute! In order to do so, fork this repository. Your pull request will need approval in order to merge to ```main```. <br/><br/> Take a look at our [Future Development](#future-development) section to see what we are looking to expand on (implemented features are denoted with a &check;).
+We'd love for you to contribute! In order to do so, fork this repository. Your pull request will need approval in order to merge to ```main```. <br/><br/> Take a look at our [Future Development](#future-development) section to see what we are looking to expand on (implemented features are denoted with a &check;). <br/>Feel free to implement your own ideas and merge request!
 
 ## Tests
 No tests were run to complete this API.
 
 ## Questions
-Find me on [GitHub](https://github.com/isayani)<br/>
-Or visit the API's repository on GitHub: [Telepathy](https://github.com/isayani/no-sql-social-network)
+Find Insha Sayani on [GitHub](https://github.com/isayani)<br/>
+Or visit the API's repository: [Telepathy](https://github.com/isayani/no-sql-social-network)
 
 - - -
-© 2022 Telepathy: Social Network API by ISayani Creative Services, Confidential and Proprietary. All Rights Reserved.
+© 2022 Telepathy 💭: Social Network API by ISayani Creative Services, Confidential and Proprietary. All Rights Reserved.
