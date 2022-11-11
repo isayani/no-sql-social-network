@@ -13,6 +13,6 @@ app.use(routes);
 
 db.once('open', () => {
   app.listen(PORT, () => {
-    console.log(`Telepathy API 💭 server running on port ${PORT}!`);
+    console.log(`Telepathy API server running on port ${PORT}!`);
   });
 });
