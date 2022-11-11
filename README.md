@@ -41,19 +41,28 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 ```
 
 ## Installation
-To run Telepathy locally:
+To run Telepathy API 💭 locally:
 
 1. Pull down and/or branch this repository
 2. Run ```npm i``` to install all dependencies
 3. Seed the database by running ```npm run seed```
 4. Run the app with ```npm run start``` </br> or ```npm run dev``` for nodemon
+</br>
+This application has not been deployed. The following animations show the API being invoked and seeded:
 
-This application has not been deployed. The following animations show examples' of the application's API routes being tested in Insomnia:
+https://user-images.githubusercontent.com/107900180/201265071-0b9267d4-f5b6-4638-b77e-e4fab1f2e403.mp4
 
-![GET] </br>
-![POST] </br>
-![PUT] </br>
-![DELETE] </br>
+
+<br/>
+The following animations show examples of the application's API routes being tested in Insomnia:
+(GET, POST, PUT, DELETE)
+
+
+
+https://user-images.githubusercontent.com/107900180/201265105-47a1ffdc-4caf-4e3e-97f7-db9badfd8f56.mp4
+
+
+
 
 ## License
 This project is licensed under the MIT license.
@@ -82,7 +91,7 @@ No tests were run to complete this API.
 
 ## Questions
 Find Insha Sayani on [GitHub](https://github.com/isayani)<br/>
-Or visit the API's repository: [Telepathy](https://github.com/isayani/no-sql-social-network)
+Or visit the API's repository: [Telepathy API 💭](https://github.com/isayani/no-sql-social-network)
 
 - - -
 © 2022 Telepathy 💭: Social Network API by ISayani Creative Services, Confidential and Proprietary. All Rights Reserved.
