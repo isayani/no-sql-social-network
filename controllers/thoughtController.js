@@ -16,8 +16,8 @@ module.exports = {
   getSingleThought(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
       .select("-__v")
-      .then(async (thought) =>
-        !thought
+      .then(async (thoughts) =>
+        !thoughts
           ? res
               .status(404)
               .json({ message: "Thought not found! Please try again." })
@@ -41,7 +41,7 @@ module.exports = {
               .json({ message: "Error: thought was not recorded!" })
           : User.findOneAndUpdate(
               { userId: req.body.userId },
-              { $push: { thoughts: { thought: thought.thoughtText } } },
+              { $push: { thought: { thought: thought.thoughtText } } },
               { runValidators: true, new: true }
             )
       )
